@@ -1,0 +1,6 @@
+<p>data-binding works!</p>
+
+<label for="username">User Name</label>
+<input type="text" class="form-control mt-2 mb-3" id="username" [(ngModel)]="username" />
+<p>{{ username }}</p>
+<button class="btn btn-info" [disabled]="!(username.length)" (click)="resertUsername()">Reset Username</button>
