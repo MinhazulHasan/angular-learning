@@ -1,15 +1,36 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12">
-            <ol>
-                <li>Item-1</li>
-                <li>Item-2</li>
-                <li>Item-3</li>
-                <li>Item-4</li>
-            </ol>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid, est!</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid, est!</p>
-            <hr>
+            <button
+                class="btn btn-primary mt-3"
+                (click)="onlyOdd = !onlyOdd"
+            >
+                Only show odd numbers
+            </button>
+            <ul class="list-group mt-3">
+                <div *ngIf="onlyOdd">
+                    <li
+                        class="list-group-item"
+                        *ngFor="let number of oddNumbers"
+                        [ngClass]="{odd: number % 2 !== 0}"
+                        [ngStyle]="{backgroundColor: number % 2 !== 0 ? 'yellow' : 'transparent'}"
+                    >
+                        {{ number }}
+                    </li>
+                </div>
+                <div *ngIf="!onlyOdd">
+                    <li
+                        class="list-group-item"
+                        *ngFor="let number of evenNumbers"
+                        [ngClass]="{odd: number % 2 !== 0}"
+                        [ngStyle]="{backgroundColor: number % 2 !== 0 ? 'yellow' : 'transparent'}"
+                    >
+                        {{ number }}
+                    </li>
+                </div>
+            </ul>
+            <p appBasicHighlight>Style Me With basic directives</p>
+            <p appBetterHighlight [defaultColor]="'yelow'" [highlightColor]="'red'">Style Me With better directives</p>
         </div>
     </div>
 </div>
