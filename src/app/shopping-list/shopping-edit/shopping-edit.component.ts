@@ -9,6 +9,8 @@ import { Ingredient } from 'src/app/shared/ingredient.model';
 export class ShoppingEditComponent {
 
   @Output() ingredientAdded = new EventEmitter<Ingredient>();
+  @Output() ingredientRemoved = new EventEmitter<void>();
+  @Output() ingredientCleared = new EventEmitter<void>();
   @ViewChild('nameInput') nameInputRef!: ElementRef;
   @ViewChild('amountInput') amountInputRef!: ElementRef;
 
@@ -20,5 +22,11 @@ export class ShoppingEditComponent {
     }
     const newIngredieent = new Ingredient(ingName, ingAmount);
     this.ingredientAdded.emit(newIngredieent);
+  }
+  onRemoveItem() {
+    this.ingredientRemoved.emit();
+  }
+  onClearItem() {
+    this.ingredientCleared.emit();
   }
 }

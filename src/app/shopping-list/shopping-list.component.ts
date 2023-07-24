@@ -15,4 +15,10 @@ export class ShoppingListComponent {
   onIngredientAdded(ingredientInput: Ingredient) {
     this.ingredients.push(ingredientInput);
   }
+  onIngredientRemoved() {
+    this.ingredients.pop();
+  }
+  onIngredientCleared() {
+    this.ingredients = [];
+  }
 }
