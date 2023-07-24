@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter, ElementRef, ViewChild } from '@angular/core';
 import { Ingredient } from 'src/app/shared/ingredient.model';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-shopping-edit',
@@ -18,7 +19,16 @@ export class ShoppingEditComponent {
     const ingName = this.nameInputRef.nativeElement.value;
     const ingAmount = this.amountInputRef.nativeElement.value;
     if (ingName === '' || ingAmount === '') {
-      alert('Please enter a valid value');
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Please enter a valid value',
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 2000,
+      });
+      return;
     }
     const newIngredieent = new Ingredient(ingName, ingAmount);
     this.ingredientAdded.emit(newIngredieent);
