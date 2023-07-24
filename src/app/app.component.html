@@ -5,13 +5,16 @@
     ></app-cockpit>
     <hr>
     <div class="row">
-        <div class="col-xs-12 my-3">
+        <div class="col-xs-12 my-3">  
+            <button class="btn btn-primary my-2" (click)="onChangeFirst()">Change first element</button>
+            <button class="btn btn-danger my-2 mx-2" (click)="onDestroyFirst()">Destroy first element</button>
             <app-server-element
                 *ngFor="let serverElement of serverElements"
                 [srvElement]="serverElement"
+                [name]="serverElement.name"
             >
-                <p #contentParagraph>
-                    <strong *ngIf="serverElement.type === 'server'" style="color: red;">{{serverElement.content}}</strong>
+                <p #contentParagraph>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+                    <strong *ngIf="serverElement.type === 'server'" style="color: #ff0000;">{{serverElement.content}}</strong>
                     <em *ngIf="serverElement.type === 'blueprint'">{{serverElement.content}}</em>
                 </p>
             </app-server-element>
