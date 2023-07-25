@@ -21,7 +21,6 @@ export class ShoppingEditComponent {
     if (ingName === '' || ingAmount === '') {
       Swal.fire({
         icon: 'error',
-        title: 'Oops...',
         text: 'Please enter a valid value',
         toast: true,
         position: 'top-end',
